@@ -6,7 +6,7 @@ This project adds websocket capabilities to [bottle](http://bottlepy.org), lever
 ### Install
 Use `pip` or `easy_install`:
 
-    pip install bottle-tornado-websocket
+    pip install bottle-tornadosocket
 
 ### Requirements
 
