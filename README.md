@@ -44,6 +44,10 @@ And then use the provided server:
     run(port=8080, server=TornadoWebSocketServer, handlers=tornado_handlers)
 
 ### Example
+To echo chat example just run `chat.py` in `examples/echo` folder:
+
+    python echo.py
+
 To run chat example just run `chat.py` in `examples/chat` folder:
 
     python chat.py
