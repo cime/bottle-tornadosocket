@@ -1,6 +1,6 @@
 from bottle import ServerAdapter
 
-class TornadoWSServer(ServerAdapter):
+class TornadoWebSocketServer(ServerAdapter):
     """ The super hyped asynchronous server by facebook. Untested. """
     def run(self, handler): # pragma: no cover
         import tornado.wsgi, tornado.httpserver, tornado.ioloop

@@ -35,7 +35,15 @@
 	
 	<script>
 		$(function(){
-			var ws = new WebSocket('ws://localhost:9090/ws');
+            if (!window.WebSocket) {
+                if (window.MozWebSocket) {
+                    window.WebSocket = window.MozWebSocket;
+                } else {
+                    alert('Your browser doesn\'t support WebSockets.');
+                }
+            }
+
+			var ws = new WebSocket('ws://localhost:8080/ws');
 			ws.onmessage = function(evt) {
 				$('#chat').val($('#chat').val() + '\n' + evt.data);
 			};

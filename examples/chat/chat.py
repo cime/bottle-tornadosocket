@@ -1,14 +1,14 @@
 from bottle import *
-from server import TornadoWSServer
+from bottle.ext.tornado.websocket import TornadoWebSocketServer
 import tornado.web
 import tornado.websocket
 
 debug(True)
 
 @get('/')
-@view('index')
+@view('chat')
 def index():
-    return { 'title': 'Bottle Chat' }
+    return { 'title': 'Bottle WebSocket Chat' }
 
 class MessageDispatcher(object):
     clients = []
@@ -26,7 +26,7 @@ class MessageDispatcher(object):
         for c in cls.clients:
             c.write_message(message)
 
-class WSHandler(tornado.websocket.WebSocketHandler):
+class ChatHandler(tornado.websocket.WebSocketHandler):
     clients = []
     unique_id = 0
 
@@ -49,11 +49,11 @@ class WSHandler(tornado.websocket.WebSocketHandler):
         MessageDispatcher.remove_client(self)
 
 if __name__ == "__main__":
-    handlers = [
-        (r"/ws", WSHandler),
+    tornado_handlers = [
+        (r"/ws", ChatHandler),
         (r"/(favicon.ico)", tornado.web.StaticFileHandler, {"path": "./static/"}),
         (r"/css/(.*)", tornado.web.StaticFileHandler, {"path": "./static/css/"}),
         (r"/js/(.*)", tornado.web.StaticFileHandler, {"path": "./static/js/"}),
         (r"/img/(.*)", tornado.web.StaticFileHandler, {"path": "./static/img/"}),
     ]
-    run(port=9090, reloader=True, server=TornadoWSServer, handlers=handlers)
+    run(port=8080, reloader=True, server=TornadoWebSocketServer, handlers=tornado_handlers)
