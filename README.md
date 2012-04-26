@@ -1,4 +1,11 @@
-bottle-tornado-websocket
+Bottle Tornado Websocket
 ========================
 
-bottle-tornado-websocket
+### Requirements
+
+* Bottle
+* Tornado
+
+### Example
+To run example just run:
+    python example.py
