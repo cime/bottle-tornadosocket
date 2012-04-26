@@ -1,5 +1,5 @@
 from bottle import *
-from bottle_tornado_websocket import TornadoWebSocketServer
+from bottle.ext.tornadosocket import TornadoWebSocketServer
 import tornado.websocket
 
 debug(True)

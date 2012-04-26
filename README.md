@@ -16,7 +16,7 @@ Use `pip` or `easy_install`:
 ### Usage
 Import the server and tornado's WebSocketHandler:
 
-    from bottle_tornado_websocket import TornadoWebSocketServer
+    from bottle.ext.tornadosocket import TornadoWebSocketServer
     from tornado.websocket import WebSocketHandler
 
 Create your application handlers, for example:
