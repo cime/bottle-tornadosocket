@@ -3,4 +3,4 @@
 .idea/
 build/
 dist/
-bottle_tornado_websocket.egg-info/
+*.egg-info/
